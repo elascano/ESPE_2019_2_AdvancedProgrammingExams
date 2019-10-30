@@ -17,7 +17,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -25,30 +24,29 @@ import javax.ws.rs.core.MediaType;
  *
  * @author DenniseSandoval
  */
-@Path("productbyid")
-public class ProductbyidResource {
+@Path("allproducts")
+public class AllproductsResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of ProductbyidResource
+     * Creates a new instance of AllproductsResource
      */
-    public ProductbyidResource() {
+    public AllproductsResource() {
     }
-    
+
     /**
-     * Retrieves representation of an instance of ec.edu.espe.school.services.ProductbyidResource
+     * Retrieves representation of an instance of ec.edu.espe.school.services.AllproductsResource
      * @return an instance of ec.edu.espe.school.model.product
      */
-    @Path("{idproduct}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson(@PathParam("idproduct") String idproduct) throws SQLException {
+    public String getJson() throws SQLException {
         DBCconnect conexion = new DBCconnect();
         ArrayList <product> products = new ArrayList();
         product tempProduct;
-        PreparedStatement consulta = conexion.connect().prepareStatement("SELECT * FROM products WHERE id= '"+idproduct+"'");
+        PreparedStatement consulta = conexion.connect().prepareStatement("SELECT * FROM products");
         ResultSet resultado = consulta.executeQuery();
         while (resultado.next()) {
             tempProduct = new product(resultado.getString("id"), resultado.getString("name"), resultado.getString("description"), resultado.getInt("quantity"), resultado.getFloat("price"));
@@ -58,7 +56,7 @@ public class ProductbyidResource {
     }
 
     /**
-     * PUT method for updating or creating an instance of ProductbyidResource
+     * PUT method for updating or creating an instance of AllproductsResource
      * @param content representation for the resource
      */
     @PUT
