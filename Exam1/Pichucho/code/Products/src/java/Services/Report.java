@@ -65,6 +65,17 @@ public class Report {
         return productVO;
     }
     
+    @GET
+    @Path("product/total")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String  getReporttotalmoney() {
+          productDAO pdc=new productDAO();
+          //productVO r=new productVO();
+          int total;
+          total=pdc.mostrartotal();
+          String totalf= String.valueOf(total);
+        return totalf;
+    }
     @Path("product/{id}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
