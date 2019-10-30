@@ -201,6 +201,31 @@ public productDAO(){
         return listaB;
     }
 
+    public int mostrartotal(){
+        ArrayList <productVO> listaB=new ArrayList <productVO>();
+        productVO producto;
+        Conexion con = new Conexion();
+        int total =0;
+        try{
+            Connection acceso = con.obtenerConexion();
+            PreparedStatement ps= acceso.prepareStatement("SELECT * FROM product");
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                producto=new productVO();
+                producto.setId(rs.getInt(1));
+                producto.setName(rs.getString(2));
+                producto.setDescription(rs.getString(3));
+                producto.setStock(rs.getInt(4));
+                producto.setPrice(rs.getInt(5));
+                total = total + (producto.getPrice()*producto.getStock());                
+                //listaB.add(producto);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return total;
+    }
+
     /**
      * @return the instrictor
      */
