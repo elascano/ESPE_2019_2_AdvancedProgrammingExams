@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(ec.edu.espe.school.services.AllproductsResource.class);
         resources.add(ec.edu.espe.school.services.ProductbyidResource.class);
+        resources.add(ec.edu.espe.school.services.TotalamountmoneyResource.class);
     }
     
 }
