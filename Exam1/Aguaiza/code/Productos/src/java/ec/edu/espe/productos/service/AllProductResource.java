@@ -51,6 +51,7 @@ public class AllProductResource {
         return listaServicios;
     }
 
+    
     public ArrayList<Producto> getAll() {
         DBConnect conec = new DBConnect();
         ArrayList<Producto> lista = new ArrayList<>();
@@ -77,6 +78,8 @@ public class AllProductResource {
 
         return lista;
     }
+    
+    
     
     
 
