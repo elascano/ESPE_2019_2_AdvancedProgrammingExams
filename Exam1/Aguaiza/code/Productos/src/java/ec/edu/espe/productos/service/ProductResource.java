@@ -6,6 +6,7 @@
 package ec.edu.espe.productos.service;
 
 
+import ec.edu.espe.Productos.model.DBConnect;
 import ec.edu.espe.productos.model.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
