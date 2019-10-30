@@ -41,16 +41,31 @@ public class ProductResource {
     @Produces("application/json")
     public AeProduc getJsonProducts() {
         //TODO return proper representation object
-        System.out.println("PROBANDO");
         AeProduc product = new AeProduc();
+        
         return product;
     }
-    /*public Student getJsonAnyStudent() {
-
-        Student student = new Student(1,"Angel","y demonioi",8.0F,22);
-        return student;
-    }*/
-
+    
+    @GET
+    @Path("product/{id}")
+    @Produces("application/json")
+    public AeProduc getJsonProductsById() {
+        //TODO return proper representation object
+        AeProduc product = new AeProduc();
+        
+        return product;
+    }
+    
+    @GET
+    @Path("money")
+    @Produces("application/json")
+    public AeProduc getJsonMoney() {
+        //TODO return proper representation object
+        AeProduc product = new AeProduc();
+        
+        return product;
+    }
+    
     /**
      * PUT method for updating or creating an instance of ProductResource
      * @param content representation for the resource
