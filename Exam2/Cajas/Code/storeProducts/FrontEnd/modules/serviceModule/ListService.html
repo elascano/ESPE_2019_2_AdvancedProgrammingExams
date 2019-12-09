@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+    <script type="text/javascript" src="../../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./validate.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Service</title>
+</head>
+
+<body onload="cargar()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../../images/logoGruas.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ServiGruas
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="#">Services</a>
+                <a class="nav-item nav-link " href="../operatorModule/OperatorRegister.html">Operator</a>
+                <a class="nav-item nav-link" href="../companyVehicleModule/registerVehicle.html">Comp.
+                    Vehicle</a>
+                <a class="nav-item nav-link" href="../clientModule/ListClients.html">Clients</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2><b>List</b></h2>
+        </div>
+        <div class="mt-5">
+
+            <table class="table table-light">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">type</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableProduct">
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <form class="col-12" id="location-form" th:action="@{/elevations}" method="get">
+        <div class="form-group" id="lat-group">
+            <label for="lat">Id:</label>
+            <input type="text" class="form-control" placeholder="10" name="lat" id="id" />
+        </div>
+        <div class="form-group" id="lat-group">
+            <label for="lat">Name:</label>
+            <input type="text" class="form-control" placeholder="cikso" name="lat" id="name" />
+        </div>
+        <div class="form-group" id="lat-group">
+            <label for="lat">Type:</label>
+            <input type="text" class="form-control" placeholder="tool" name="lat" id="type" />
+        </div>
+        <div class="form-group" id="lat-group">
+            <label for="lat">Quantity:</label>
+            <input type="text" class="form-control" placeholder="6" name="lat" id="quantity" />
+        </div>
+        <button type="submit" class="btn btn-success btn-lg" id="Registrar">
+            Registrar
+        </button>
+    </form>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="./FrontEnd/modules/serviceModule/Service.html">Add</a></li>
+            <li class="page-item"><a class="page-link" href="#">List</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">
+                <h4>Copyright &copy; ESPE - Gruas Service 2019</h4>
+            </p>
+        </div>
+    </footer>
+    <script>
+        var locationForm = document.getElementById('location-form');
+
+        // Listen for submiot
+        locationForm.addEventListener('submit', geocode);
+
+
+        function geocode(e) {
+            // Prevent actual submit
+            e.preventDefault();
+
+            var id = document.getElementById('id').value;
+            var name = document.getElementById('name').value;
+            var type = document.getElementById('type').value;
+            var quantity = document.getElementById('quantity').value;
+            console.log(id);
+            console.log(name);
+            console.log(type);
+            console.log(quantity);
+            axios.get('http://localhost:8080/storeProducts/Products/' + id + '/' + name + '/'+type+'/'+quantity)
+                    .then(function (response) {
+                        // Log full response
+                        console.log(response);
+                        // Formatted Address                
+                        alert("dato Registrado");
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+        }
+    </script>
+</body>
+
+</html>
