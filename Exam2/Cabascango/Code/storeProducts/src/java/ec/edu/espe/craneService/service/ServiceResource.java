@@ -43,7 +43,9 @@ public class ServiceResource {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.gruasService.product.ServiceResource
+     * Retrieves representation of an instance of
+     * ec.edu.espe.gruasService.product.ServiceResource
+     *
      * @return an instance of ec.edu.espe.gruasService.model.Product
      */
     @GET
@@ -53,23 +55,55 @@ public class ServiceResource {
         listProduct = getall();
         return listProduct;
     }
-    
-    
-    
-  
 
-    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String putText(Product operator) {
+        return SetOperatorId(new Product(operator.getId(), operator.getName(), operator.getType(), operator.getQuatity()));
+    }
 
-    
+    @GET
+    @Path("{id}/{name}/{type}/{quantity}")
+    @Produces(MediaType.TEXT_PLAIN)
+
+    public String setOperator(@PathParam("id") int id, @PathParam("name") String name,
+            @PathParam("type") String type, @PathParam("quantity") int quantity) {
+
+        return SetOperatorId(new Product(id, name, type, quantity));
+    }
+
+    public String SetOperatorId(Product product) {
+
+        DBConnect conec = new DBConnect();
+        try {
+
+            Connection con = null;
+            con = conec.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = con.prepareStatement("INSERT INTO product values(?,?,?,?)");
+            ps.setInt(1, product.getId());
+            ps.setString(2, product.getName());
+            ps.setString(3, product.getType());
+            ps.setInt(4, product.getQuatity());
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        conec.finished();
+        return "registered operator";
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String postJson(Product content){
+    public String postJson(Product content) {
         return setService(content);
     }
-    
-    
-    public ArrayList<Product> getall(){
+
+    public ArrayList<Product> getall() {
         ArrayList<Product> listProducts = new ArrayList<>();
         DBConnect connect = new DBConnect();
         PreparedStatement state;
@@ -78,7 +112,7 @@ public class ServiceResource {
             state = connect.getConnection().prepareStatement("SELECT * from product");
             ResultSet rs = state.executeQuery();
             while (rs.next()) {
-                product = new Product(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
+                product = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
                 listProducts.add(product);
             }
             rs.close();
@@ -88,11 +122,11 @@ public class ServiceResource {
         }
         return listProducts;
     }
-        
-    public String setService(Product service){
+
+    public String setService(Product service) {
         DBConnect conec = new DBConnect();
         String response = "";
-        
+
         try {
             Connection con = null;
             con = conec.getConnection();
@@ -103,17 +137,15 @@ public class ServiceResource {
             ps.setString(2, service.getName());
             ps.setString(3, service.getType());
             ps.setInt(4, service.getQuatity());
-            
+
             ps.executeUpdate();
-            response="Succesfull Save Service";
+            response = "Succesfull Save Service";
         } catch (Exception e) {
             System.out.println(e);
-            response="Error Save Service";
+            response = "Error Save Service";
         }
         conec.finished();
         return response;
     }
-    
-   
-   
+
 }
