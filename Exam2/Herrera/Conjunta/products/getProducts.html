@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var URI="http://localhost:8085/products/webresources/rest.product";
+    $(document).ready(function() {
+    $("#btnConsultarTabla").on("click", function() {
+      alert("Bien");
+      consultarListaAutor();
+      
+        });
+    });
+    function consultarListaAutor()
+        {
+            $.ajax({
+                url: URI + "/01",
+                type: "GET",
+                contentType: "application/json",
+                success: function(autorResult) {
+                var str = "";
+                console.log(autorResult);
+                autorResult.Result.forEach(function(response) {
+                    str = str + "<tr><td>" + response.IDPRODUCT + "</td>";
+                    str = str + "<td>" + response.NAMEPRODUCT  + "</td>";
+                    str = str + "<td>" + response.STPCKPRODUCT + "</td>";
+                    str = str + "<td>" + response.TYPEPRODUCT  + "</td>";
+                });
+                $("product").html(str);
+                },
+                error: function(error) { 
+                alert("Error en la Consulta de Producto");
+                }
+            });
+
+        }
+    </script>
+</head>
+<body>
+        <table>
+                <thead>
+                    <tr>
+                        <th>ID Product  </th>
+                        <th>Name Product    </th>
+                        <th>TYPE Product    </th>
+                        <th>STOCK Product   </th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="product">
+                </tbody>
+            </table>
+            <br>
+            <button type="submit" id="btnConsultarTabla">Guardar Cambios</button>
+</body>
+
+</html>
