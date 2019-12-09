@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./listar.js"></script>
+    <title>Service</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            Hardware
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-item nav-link active" href="./list.html">Listar</a>
+                <a class="nav-item nav-link " href="./form.html">Insertar</a>
+            </div>
+        </div>
+    </nav>
+    <form class="form" id="formStore">
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <label for="">Name</label>
+                    <input type="text" id="name_product">
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Type</label>
+                    <input type="text" id="type_product">
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Quantity</label>
+                    <input type="text" id="quantity_product">
+                </div>
+            </div>
+            
+        </div>
+    </form>
+    <button onclick="submit()">Enter</button>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">
+                <h4>Copyright &copy; ESPE - Hardware 2019</h4>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
