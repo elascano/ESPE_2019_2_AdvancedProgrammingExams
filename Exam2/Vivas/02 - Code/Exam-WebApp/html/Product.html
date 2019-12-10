@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/validations.js"></script>
+    <title>Product Form</title>
+</head>
+
+<body>
+    
+        <div class="modal-body text-center">
+            <form name="product" method="post" action="../php/product.php">
+            <div class="col-sm-8 main-section mx-auto">
+                <div class="modal-content">
+                    <div class="col-33 ">
+                        <form class="col-33"><br>
+                            <table class="table">
+
+                                <head>
+                                    <div class="styletittle">
+                                        Product
+                                    </div>
+                                </head>
+                                <tbody>
+
+                                    <tr>
+                                        <br>
+                                        <IMG SRC="../images/product1.png"><br><br><br>
+                                        <div class="form-group">
+                                            <td>
+                                                <div class="label">ID: </div>
+                                            </td>
+                                            <td><input type="text" class="form-control" name="idproduct"  autofocus min="1" onkeypress="return tecla()" onsubmit="return verificaUser();" onpaste="return false" onfocus="return false" autofocus
+                                                    required></td>
+                                            <td>
+                                                <input style="background-color: rgb(52, 162, 212);" class="btn btn-primary btn-block  center " type="submit" class="" name="option" value="Register">
+
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="form-group">
+                                            <td>
+                                                <div class="label">Name: </div>
+                                            </td>
+                                            <td><input type="text" class="form-control" name="nameproduct"  onkeypress="return soloLetras(event)" onsubmit="return verificaUser();" onpaste="return false" onfocus="return false" required></td>
+                                            <td>
+                                                <input style="background-color: rgb(52, 162, 212);" class="btn btn-primary btn-block  center " type="submit" class="" name="option" value="Search">
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="form-group">
+                                            <td>
+                                                <div class="label">Type: </div>
+                                            </td>
+                                            <td><select class="form-control" name="selectType">
+											  <br><option value="Fragil" selected>Fragil</option><br>
+											  <br><option value="No fragil" >No fragil</option><br>
+											</select></td>
+                                            <td>
+                                                
+
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="form-group">
+                                            <td>
+                                                <div class="label">Quantity: </div>
+                                            </td>
+                                            <td><input type="text" class="form-control" name="quantityproduct"  onkeypress="return validatedoubles(event)" onsubmit="return verificaUser();" onpaste="return false" onfocus="return false" required></td>
+                                            <td>
+                                                
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="form-group">
+                                            <td>
+                                               
+                                            </td>
+                                            <td></td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="form-group">
+                                            <td>
+                                               
+                                            </td>
+                                            <td></td>
+                                        </div>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        </div>
+    
+</body>
+
+</html>

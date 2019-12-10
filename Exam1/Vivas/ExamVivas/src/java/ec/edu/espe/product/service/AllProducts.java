@@ -45,8 +45,7 @@ public class AllProducts {
 
         ArrayList<Product> productList = new ArrayList<Product>();
         productList = SearchData.allProducts();
-        //productList.add(new Product("s", "s", "v", 0, 0.0f));
-        //productList.add(new Product("d", "d", "d", 1, 0.0f));
+
         return productList;
     }
 

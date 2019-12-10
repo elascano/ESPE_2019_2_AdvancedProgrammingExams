@@ -46,6 +46,38 @@ public class SearchData {
         return arrayProduct;
 
     }
+    
+    public static String totalPrize() {
+        BaseConnection conexion = new BaseConnection();
+        Connection cn = conexion.getConexion();
+        Product product = new Product();
+        ArrayList<Product> arrayProduct = new ArrayList<Product>();
+        String totalPrize;
+        //Sacar datos
+        String sql = "SELECT * FROM product";
+        Statement st;
+        float prize=0.0f;
+
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                product = new Product(rs.getString(1), rs.getString(2), rs.getString(3), Integer.parseInt(rs.getString(4)), Float.parseFloat(rs.getString(5)));
+                prize = (prize + (product.getPrice()*product.getQuantityStock()));
+                arrayProduct.add(product);
+                
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        
+        totalPrize = Float.toString(prize);
+        
+
+        return totalPrize;
+
+    }
 
     public static Product searchProductById(String id) {
         BaseConnection conexion = new BaseConnection();
