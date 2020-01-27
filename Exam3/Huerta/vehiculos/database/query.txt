@@ -1,0 +1,41 @@
+
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('01', 'mazda', '3');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('02', 'toyota', 'fortuner');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('03', 'fiat', 'uno');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('04', 'lada', 'niva');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('05', 'ferrari', 'f40');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('06', 'volvo', 'dlux');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('07', 'chevrolet', 'camaro');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('08', 'mazda', '6');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('09', 'mazda', '2');
+
+INSERT INTO Vehicle
+(id, brand, model)
+VALUES('10', 'mazda', 'bt-50');
