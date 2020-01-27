@@ -17,20 +17,20 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-      <ion-label>ID del vehiculo: </ion-label>
-      <ion-input type="text" placeholder = "01"></ion-input>
-      <button (click)="getUsersList()" routerDirection="root" class="btn__submit">BUSCAR</button>
+      <ion-label>ID of vehicle: </ion-label>
+      <ion-input type="text" placeholder = "01" ></ion-input>
+      <button (click)="getVehicle()"class="btn__submit">BUSCAR</button>
       <br>
       <br>
       <ion-list>
           <ion-label>VEHICLE: </ion-label>
           <br>
-          <ion-item *ngFor="let x of usersList;let i=index" >
-              <ion-label>
-                <h3>{{x.id}}</h3>
-                <p>{{x.brand}}</p>
-                <p>{{x.model}}</p>
-              </ion-label>
+          <ion-item *ngFor="let x of vehicleList;let i=index" >
+            <ion-label>
+              <h3>{{x.name.title}}. {{x.name.first}}</h3>
+              <p>{{x.email}}</p>
+              <p>{{x.registered.date}}</p>
+            </ion-label>
             </ion-item>
         </ion-list>
 </ion-content>

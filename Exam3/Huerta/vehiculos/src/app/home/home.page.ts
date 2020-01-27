@@ -13,21 +13,21 @@ export class HomePage {
     this.getVehicle()    
   }
 
-  usersList:any[]=[]
+  vehicleList:any[]=[]
 
   async getVehicle()
   {
-    const Vehicle = require('../models/vehicleModel');
+    const loading = await this.loadingController.create({
+      message: 'Cargando',
+      duration: 2000   
+    });
+    await loading.present();
 
-    module.exports = function (app){
-
-     app.getVehicle('/getVehicle', (req, res) => {
-         Vehicle.getUsers((err, data) => {
-             res.status(200).json(data);
-         }); 
-     });
-
-    }
+    this.http.get('https://randomuser.me/api/?results=10').subscribe(data=>{
+      console.log(data);
+      this.vehicleList=data["results"]
+      loading.dismiss()
+    })
   }
 
 }
