@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:layout_width="294dp"
+        android:layout_height="630dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="51dp"
+        android:alpha="0.85"
+        android:background="@drawable/relative_layout_background"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="111dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_marginTop="120dp"
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:id="@+id/table_row1"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/cedulaClientesMostrar"
+                        android:fontFamily="serif"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="ID"/>
+                    <TextView
+                        android:id="@+id/nombreClientesMostrar"
+                        android:textColor="#000"
+                        android:fontFamily="serif"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="Brand"/>
+                    <TextView
+                        android:textColor="#000"
+                        android:id="@+id/telefonoClientesMostrar"
+                        android:fontFamily="serif"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="Model"/>
+
+
+
+
+                </TableRow>
+
+                <View
+                    android:layout_height="3dip"
+                    android:layout_width="match_parent"
+                    android:background="#ff0000"/>
+
+            </TableLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txtdatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+    </ScrollView>
