@@ -23,7 +23,7 @@ export class HomePage {
     });
     await loading.present();
 
-    this.http.get('https://randomuser.me/api/?results=10').subscribe(data=>{
+    this.http.get('http://ec2-3-19-64-3.us-east-2.compute.amazonaws.com:8080/api/get/vehicle/1').subscribe(data=>{
       console.log(data);
       this.vehicleList=data["results"]
       loading.dismiss()
